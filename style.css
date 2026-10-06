@@ -1,0 +1,798 @@
+/* ========================================
+   BASIC RESET
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    background:
+        url("images/background.jpg")
+        center center / cover
+        fixed
+        no-repeat;
+
+    color: white;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   BACKGROUND DARKENING
+======================================== */
+
+.background-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(5, 22, 11, 0.18),
+            rgba(5, 22, 11, 0.30)
+        );
+
+    z-index: -1;
+}
+
+
+/* ========================================
+   CALENDAR AREA
+======================================== */
+
+.calendar {
+
+    position: relative;
+
+    width: min(1200px, 94vw);
+
+    min-height: 900px;
+
+    margin: 0 auto;
+
+    padding-top: 55px;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.title-card {
+
+    position: absolute;
+
+    left: 2%;
+    top: 55px;
+
+    width: 37%;
+    min-height: 180px;
+
+    background: rgba(135, 170, 139, 0.94);
+
+    border: 3px dashed rgba(20, 45, 25, 0.85);
+
+    padding: 24px 25px 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.15);
+}
+
+
+.title-card h1 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(25px, 3vw, 39px);
+
+    line-height: 0.98;
+
+    font-weight: 800;
+
+    color: white;
+
+    text-shadow:
+        0 2px 2px rgba(0,0,0,0.10);
+}
+
+
+.signature {
+
+    margin-top: 25px;
+
+    text-align: right;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: 26px;
+
+    font-weight: normal;
+
+    color: white;
+}
+
+
+/* ========================================
+   DOOR CONTAINER
+======================================== */
+
+.doors {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 820px;
+}
+
+
+/* ========================================
+   DOOR GENERAL STYLE
+======================================== */
+
+.door {
+
+    position: absolute;
+
+    border: none;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            145deg,
+            #17451c,
+            #0c3212
+        );
+
+    color: white;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,0.25);
+
+    transition:
+        transform 0.20s ease,
+        filter 0.20s ease,
+        box-shadow 0.20s ease;
+
+    overflow: hidden;
+}
+
+
+.door::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+
+    pointer-events: none;
+}
+
+
+.door span {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 900;
+
+    font-size: clamp(38px, 4vw, 62px);
+
+    text-shadow:
+        0 3px 3px rgba(0,0,0,0.25);
+}
+
+
+.door:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.025);
+
+    filter: brightness(1.14);
+
+    box-shadow:
+        0 14px 30px rgba(0,0,0,0.35);
+}
+
+
+.door:active {
+
+    transform: scale(0.98);
+}
+
+
+/* ========================================
+   OPENED DOORS
+======================================== */
+
+.door.opened {
+
+    background:
+        linear-gradient(
+            145deg,
+            #38653d,
+            #244d29
+        );
+}
+
+
+.door.opened::after {
+
+    content: "✓";
+
+    position: absolute;
+
+    right: 10px;
+
+    top: 7px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    color: rgba(255,255,255,0.7);
+}
+
+
+/* ========================================
+   INDIVIDUAL DOOR POSITIONS
+
+   These deliberately look irregular,
+   like your MyAdvent layout.
+======================================== */
+
+
+/* Door 7 — left upper */
+.door-7 {
+
+    left: 2%;
+
+    top: 260px;
+
+    width: 18%;
+
+    height: 180px;
+}
+
+
+/* Door 12 — left lower */
+.door-12 {
+
+    left: 2%;
+
+    top: 455px;
+
+    width: 18%;
+
+    height: 170px;
+}
+
+
+/* Door 11 */
+.door-11 {
+
+    left: 21%;
+
+    top: 260px;
+
+    width: 18%;
+
+    height: 205px;
+}
+
+
+/* Door 3 */
+.door-3 {
+
+    left: 21%;
+
+    top: 480px;
+
+    width: 18%;
+
+    height: 180px;
+}
+
+
+/* Door 4 */
+.door-4 {
+
+    left: 41%;
+
+    top: 55px;
+
+    width: 18%;
+
+    height: 195px;
+}
+
+
+/* Door 6 */
+.door-6 {
+
+    left: 41%;
+
+    top: 265px;
+
+    width: 18%;
+
+    height: 180px;
+}
+
+
+/* Door 1 */
+.door-1 {
+
+    left: 41%;
+
+    top: 460px;
+
+    width: 18%;
+
+    height: 195px;
+}
+
+
+/* Door 5 */
+.door-5 {
+
+    left: 61%;
+
+    top: 55px;
+
+    width: 18%;
+
+    height: 170px;
+}
+
+
+/* Door 2 */
+.door-2 {
+
+    left: 61%;
+
+    top: 240px;
+
+    width: 18%;
+
+    height: 240px;
+}
+
+
+/* Door 9 */
+.door-9 {
+
+    left: 81%;
+
+    top: 55px;
+
+    width: 17%;
+
+    height: 255px;
+}
+
+
+/* Door 8 */
+.door-8 {
+
+    left: 81%;
+
+    top: 325px;
+
+    width: 17%;
+
+    height: 155px;
+}
+
+
+/* Door 10 */
+.door-10 {
+
+    left: 81%;
+
+    top: 495px;
+
+    width: 17%;
+
+    height: 260px;
+}
+
+
+/* ========================================
+   MODAL
+======================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+}
+
+
+.modal.visible {
+
+    display: flex;
+}
+
+
+.modal-backdrop {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(2, 10, 4, 0.78);
+
+    backdrop-filter: blur(3px);
+}
+
+
+/* ========================================
+   MODAL WINDOW
+======================================== */
+
+.modal-window {
+
+    position: relative;
+
+    z-index: 1001;
+
+    max-width: min(850px, 94vw);
+
+    max-height: 92vh;
+
+    animation:
+        guardianAppear
+        0.32s ease;
+
+    filter:
+        drop-shadow(
+            0 18px 35px
+            rgba(0,0,0,0.5)
+        );
+}
+
+
+.modal-window img {
+
+    display: block;
+
+    max-width: 100%;
+
+    max-height: 88vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 4px;
+}
+
+
+/* ========================================
+   CLOSE BUTTON
+======================================== */
+
+.close-button {
+
+    position: absolute;
+
+    right: 8px;
+
+    top: 2px;
+
+    z-index: 10;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255,255,255,0.90);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 38px;
+
+    font-weight: 200;
+
+    line-height: 40px;
+
+    cursor: pointer;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,0.7);
+}
+
+
+.close-button:hover {
+
+    color: white;
+
+    transform: scale(1.1);
+}
+
+
+/* ========================================
+   OPENING ANIMATION
+======================================== */
+
+@keyframes guardianAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.96);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 750px) {
+
+    body {
+
+        background-attachment: scroll;
+    }
+
+
+    .calendar {
+
+        width: 94vw;
+
+        min-height: auto;
+
+        padding:
+            20px
+            0
+            50px;
+    }
+
+
+    .title-card {
+
+        position: relative;
+
+        left: auto;
+
+        top: auto;
+
+        width: 100%;
+
+        min-height: auto;
+
+        margin-bottom: 20px;
+
+        padding:
+            22px
+            15px;
+    }
+
+
+    .title-card h1 {
+
+        font-size: 28px;
+
+        line-height: 1.02;
+    }
+
+
+    .signature {
+
+        font-size: 22px;
+
+        margin-top: 15px;
+    }
+
+
+    /* Mobile becomes a clean 2-column grid */
+
+    .doors {
+
+        position: static;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+        height: auto;
+    }
+
+
+    .door {
+
+        position: relative;
+
+        left: auto !important;
+
+        top: auto !important;
+
+        width: 100% !important;
+
+        height: 145px !important;
+    }
+
+
+    /*
+       On mobile we put them in numerical order.
+       This makes the experience much easier
+       on Michael's phone.
+    */
+
+    .door-1  { order: 1; }
+    .door-2  { order: 2; }
+    .door-3  { order: 3; }
+    .door-4  { order: 4; }
+    .door-5  { order: 5; }
+    .door-6  { order: 6; }
+    .door-7  { order: 7; }
+    .door-8  { order: 8; }
+    .door-9  { order: 9; }
+    .door-10 { order: 10; }
+    .door-11 { order: 11; }
+    .door-12 { order: 12; }
+
+
+    .door span {
+
+        font-size: 45px;
+    }
+
+
+    .modal {
+
+        padding: 10px;
+    }
+
+
+    .modal-window {
+
+        max-width: 98vw;
+
+        max-height: 95vh;
+    }
+
+
+    .modal-window img {
+
+        max-height: 92vh;
+    }
+
+
+    .close-button {
+
+        position: fixed;
+
+        top: 12px;
+
+        right: 15px;
+
+        width: 48px;
+
+        height: 48px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(0,0,0,0.55);
+    }
+
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 430px) {
+
+    .doors {
+
+        gap: 9px;
+    }
+
+
+    .door {
+
+        height: 125px !important;
+    }
+
+
+    .door span {
+
+        font-size: 39px;
+    }
+
+
+    .title-card h1 {
+
+        font-size: 24px;
+    }
+
+}
