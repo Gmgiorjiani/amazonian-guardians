@@ -25,20 +25,18 @@ const backdrop =
 ========================================== */
 
 const birdImages = {
-
-    1: "images/bird01.jpg",
-    2: "images/bird02.jpg",
-    3: "images/bird03.jpg",
-    4: "images/bird04.jpg",
-    5: "images/bird05.jpg",
-    6: "images/bird06.jpg",
-    7: "images/bird07.jpg",
-    8: "images/bird08.jpg",
-    9: "images/bird09.jpg",
-    10: "images/bird10.jpg",
-    11: "images/bird11.jpg",
-    12: "images/bird12.jpg"
-
+    1: "images/bird01.png",
+    2: "images/bird02.png",
+    3: "images/bird03.png",
+    4: "images/bird04.png",
+    5: "images/bird05.png",
+    6: "images/bird06.png",
+    7: "images/bird07.png",
+    8: "images/bird08.png",
+    9: "images/bird09.png",
+    10: "images/bird10.png",
+    11: "images/bird11.png",
+    12: "images/bird12.png"
 };
 
 
